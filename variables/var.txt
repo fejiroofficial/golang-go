@@ -1,0 +1,53 @@
+A variable is nothing but a name given to a storage area that the programs can manipulate.
+Each variable in Go has a specific type, which determines the size and layout of the variable's memory,
+the range of values that can be stored within that memory,
+and the set of operations that can be applied to the variable.
+The name of a variable can be composed of letters, digits, and the underscore character.
+It must begin with either a letter or an underscore. 
+Upper and lowercase letters are distinct because Go is case-sensitive.
+
+e.g
+var  i, j, k int;
+var  c, ch byte;
+var  f, salary float32;
+d =  42;
+
+/Note: In Go, you can define a variable with the var keyword without initializing it to a value
+
+For definition without an initializer: variables with static storage duration are implicitly
+initialized with nil (all bytes have the value 0); the initial value of all other variables
+is zero value of their data type.
+
+Static Type Declaration in Go
+A static type variable declaration provides assurance to the compiler that there is one variable
+available with the given type and name so that the compiler can proceed for further compilation
+without requiring the complete detail of the variable. A variable declaration has its meaning
+at the time of compilation only, the compiler needs the actual variable declaration
+at the time of linking of the program.
+
+e.g
+   var x float64
+   x = 20.0
+
+Dynamic Type Declaration / Type Inference in Go
+A dynamic type variable declaration requires the compiler to interpret the type of
+the variable based on the value passed to it. The compiler does not require a
+variable to have type statically as a necessary requirement.
+
+
+The lvalues and the rvalues in Go
+There are two kinds of expressions in Go −
+
+lvalue − Expressions that refer to a memory location is called "lvalue" expression.
+        An lvalue may appear as either the left-hand or right-hand side of an assignment.
+
+rvalue − The term rvalue refers to a data value that is stored at some address in memory.
+        An rvalue is an expression that cannot have a value assigned to it which means an rvalue may appear on the right- but not left-hand side of an assignment.
+
+Variables are lvalues and so may appear on the left-hand side of an assignment. Numeric literals are rvalues and so may not be assigned and can not appear on the left-hand side.
+
+The following statement is valid −
+x = 20.0
+
+The following statement is not valid. It would generate compile-time error −
+10 = 20

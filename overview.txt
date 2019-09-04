@@ -1,0 +1,11 @@
+Go is a programming language designed with systems programming in mind.
+Go is strongly and statically typed.
+Go provides inbuilt support for garbage collection, and supports concurrent programming.
+
+FEATURES OF GO PROGRAMMING
+The most important features of go are:
+- Compilation time is fast
+- Programs are simple, concise, and safe.
+- Support for Interfaces and Type embedding.
+- Inbuilt concurrency support.
+- Production of statically linked native binaries without external dependencies.

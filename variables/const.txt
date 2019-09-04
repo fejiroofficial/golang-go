@@ -1,0 +1,45 @@
+Constants refer to fixed values that the program may not alter during its execution.
+These fixed values are also called literals.
+Constants can be of any of the basic data types like an integer constant,
+a floating constant, a character constant, or a string literal.
+There are also enumeration constants as well.
+Constants are treated just like regular variables except that their values
+cannot be modified after their definition.
+
+
+STRING LITERALS IN GO
+String literals or constants are enclosed in double quotes "".
+A string contains characters that are similar to character literals:
+plain characters, escape sequences, and universal characters.
+
+You can break a long line into multiple lines using string literals
+and separating them using whitespaces.
+
+Here are some examples of string literals. All the three forms are identical strings.
+
+"hello, dear"
+"hello, \
+dear"
+"hello, " "d" "ear"
+
+(The const Keyword)
+You can use const prefix to declare constants with a specific type as follows −
+
+const variable type = value;
+The following example shows how to use the const keyword −
+```
+package main
+
+import "fmt"
+
+func main() {
+   const LENGTH int = 10
+   const WIDTH int = 5   
+   var area int
+
+   area = LENGTH * WIDTH
+   fmt.Printf("value of area : %d", area)   
+}
+```
+When the above code is compiled and executed, it produces the following result −
+`value of area : 50`

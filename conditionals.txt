@@ -1,0 +1,124 @@
+IF statement:
+An if statement consists of a boolean expression followed by one or more statements
+
+syntax:
+The syntax of an if statement in Go programming language is −
+
+if(boolean_expression) {
+   /* statement(s) will execute if the boolean expression is true */
+}
+
+If the boolean expression evaluates to true, then the block of code inside the if statement is executed.
+If boolean expression evaluates to false, then the first set of code after the end of the if statement
+(after the closing curly brace) is executed.
+
+IF ELSE:
+if(boolean_expression) {
+   /* statement(s) will execute if the boolean expression is true */
+} else {
+   /* statement(s) will execute if the boolean expression is false */
+}
+
+SWITCH STATEMENTS:
+A switch statement allows a variable to be tested for equality against a list of values.
+Each value is called a case, and the variable being switched on is checked for each switch case.
+
+In Go programming, switch statements are of two types −
+1. Expression Switch − In expression switch, a case contains expressions,
+which is compared against the value of the switch expression.
+
+switch(boolean-expression or integral type){
+   case boolean-expression or integral type :
+      statement(s);      
+   case boolean-expression or integral type :
+      statement(s); 
+   
+   /* you can have any number of case statements */
+   default : /* Optional */
+      statement(s);
+}
+
+2. Type Switch − In type switch, a case contain type which is compared against
+the type of a specially annotated switch expression.
+
+switch x.(type){
+   case type:
+      statement(s);      
+   case type:
+      statement(s); 
+   /* you can have any number of case statements */
+   default: /* Optional */
+      statement(s);
+}
+
+e.g 
+package main
+import "fmt"
+
+func main() {
+   var x interface{}
+     
+   switch i := x.(type) {
+      case nil:	  
+         fmt.Printf("type of x :%T",i)                
+      case int:	  
+         fmt.Printf("x is int")                       
+      case float64:
+         fmt.Printf("x is float64")           
+      case func(int) float64:
+         fmt.Printf("x is func(int)")                      
+      case bool, string:
+         fmt.Printf("x is bool or string")       
+      default:
+         fmt.Printf("don't know the type")     
+   }   
+}
+
+THE SELECT STATEMENT:
+The syntax for a select statement in Go programming language is as follows −
+select {
+   case communication clause  :
+      statement(s);      
+   case communication clause  :
+      statement(s); 
+   /* you can have any number of case statements */
+   default : /* Optional */
+      statement(s);
+}
+
+The following rules apply to a select statement −
+*You can have any number of case statements within a select.
+Each case is followed by the value to be compared to and a colon.
+
+*The type for a case must be the a communication channel operation.
+
+*When the channel operation occured the statements following that
+case will execute. No break is needed in the case statement.
+
+*A select statement can have an optional default case,
+which must appear at the end of the select.
+The default case can be used for performing a task when none of the cases is true.
+No break is needed in the default case.
+e.g 
+package main
+
+import "fmt"
+
+func main() {
+   var c1, c2, c3 chan int
+   var i1, i2 int
+   select {
+      case i1 = <-c1:
+         fmt.Printf("received ", i1, " from c1\n")
+      case c2 <- i2:
+         fmt.Printf("sent ", i2, " to c2\n")
+      case i3, ok := (<-c3):  // same as: i3, ok := <-c3
+         if ok {
+            fmt.Printf("received ", i3, " from c3\n")
+         } else {
+            fmt.Printf("c3 is closed\n")
+         }
+      default:
+         fmt.Printf("no communication\n")
+   }    
+}

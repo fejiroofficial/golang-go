@@ -1,0 +1,124 @@
+LOOP:
+A loop statement allows us to execute a statement or group of statements multiple times
+
+FOR LOOP:
+A for loop is a repetition control structure. It allows you to write a loop that needs to execute
+a specific number of times.
+
+The syntax of for loop in Go programming language is -
+for [condition |  ( init; condition; increment ) | Range] {
+   statement(s);
+}
+
+The flow of control in a for loop is a follows −
+
+1. If a condition is available, then for loop executes as long as condition is true.
+
+2. If a for clause that is ( init; condition; increment ) is present then −
+
+    *The init step is executed first, and only once. This step allows you to declare and
+    initialize any loop control variables. You are not required to put a statement here,
+    as long as a semicolon appears.
+
+    *Next, the condition is evaluated. If it is true, the body of the loop is executed.
+    If it is false, the body of the loop does not execute and the flow of control jumps
+    to the next statement just after the for loop.
+
+    *After the body of the for loop executes, the flow of control jumps back up to the increment statement.
+    This statement allows you to update any loop control variables.
+    This statement can be left blank, as long as a semicolon appears after the condition.
+
+    *The condition is now evaluated again. If it is true, the loop executes and the process
+    repeats itself (body of loop, then increment step, and then again the condition).
+    After the condition becomes false, the for loop terminates.
+
+3. If range is available, then the for loop executes for each item in the range.
+
+e.g
+package main
+
+import "fmt"
+
+func main() {
+   var b int = 15
+   var a int
+   numbers := [6]int{1, 2, 3, 5} 
+
+   /* for loop execution */
+   for a := 0; a < 10; a++ {
+      fmt.Printf("value of a: %d\n", a)
+   }
+   for a < b {
+      a++
+      fmt.Printf("value of a: %d\n", a)
+   }
+   for i,x:= range numbers {
+      fmt.Printf("value of x = %d at %d\n", x,i)
+   }   
+}
+
+NESTED LOOPS:
+Go programming language allows to use one loop inside another loop.
+
+for [condition |  ( init; condition; increment ) | Range] {
+   for [condition |  ( init; condition; increment ) | Range] {
+      statement(s);
+   }
+   statement(s);
+}
+
+LOOP CONTROL STATEMENTS:
+loop control statements change an execution from its normal statement.
+When an execution leaves its scope, all automatic objects that were created
+in that scope are destroyed.
+Go supports the following control statements-
+
+BREAK STATEMENTS:
+The break statement in Go programming language has the following two usages −
+When a break statement is encountered inside a loop, the loop is immediately
+terminated and the program control resumes at the next statement following the loop.
+It can be used to terminate a case in a switch statement.
+If you are using nested loops, the break statement will stop the execution of
+the innermost loop and start executing the next line of code after the block.
+
+syntax:
+   break;
+
+CONTINOUS STATEMENTS:
+It causes the loop to skip the remainder of its body and immediately retest its
+condition prior to reiterating.
+
+Syntax
+The syntax for a continue statement in Go is as follows −
+   continue;
+
+GOTO STATEMENTS:
+It transfers control to the labeled statement.
+Syntax
+The syntax for a goto statement in Go is as follows −
+
+goto label;
+..
+.
+label: statement;
+
+e.g
+package main
+
+import "fmt"
+
+func main() {
+   /* local variable definition */
+   var a int = 10
+
+   /* do loop execution */
+   LOOP: for a < 20 {
+      if a == 15 {
+         /* skip the iteration */
+         a = a + 1
+         goto LOOP
+      }
+      fmt.Printf("value of a: %d\n", a)
+      a++     
+   }  
+}

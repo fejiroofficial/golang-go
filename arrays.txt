@@ -1,0 +1,34 @@
+Go programming language provides a data structure called the array,
+which can store a fixed-size sequential collection of elements of the same type.
+An array is used to store a collection of data, but it is often more useful
+to think of an array as a collection of variables of the same type.
+
+Declaring Arrays
+To declare an array in Go, a programmer specifies the type of the elements
+and the number of elements required by an array as follows −
+
+var variable_name [SIZE] variable_type
+This is called a single-dimensional array. The arraySize must be an integer
+constant greater than zero and type can be any valid Go data type.
+For example, to declare a 10-element array called balance of type float32, use this statement −
+
+var balance [10] float32
+
+Here, balance is a variable array that can hold up to 10 float numbers.
+
+
+INITIALIZING ARRAYS:
+You can initialize array in Go either one by one or using a single statement as follows −
+
+var balance = [5]float32{1000.0, 2.0, 3.4, 7.0, 50.0}
+The number of values between braces { } can not be larger than the number of elements
+that we declare for the array between square brackets [ ].
+
+If you omit the size of the array, an array just big enough to hold the initialization
+is created. Therefore, if you write −
+
+var balance = []float32{1000.0, 2.0, 3.4, 7.0, 50.0}
+You will create exactly the same array as you did in the previous example.
+Following is an example to assign a single element of the array −
+
+balance[4] = 50.0

@@ -1,0 +1,97 @@
+FUNCTION
+The general form of a function definition in Go programming language is as follows −
+func function_name( [parameter list] ) [return_types]
+{
+   body of the function
+}
+
+e.g
+/* function returning the max between two numbers */
+func max(num1, num2 int) int {
+   /* local variable declaration */
+   result int
+
+   if (num1 > num2) {
+      result = num1
+   } else {
+      result = num2
+   }
+   return result 
+}
+
+Returning multiple values from Function
+package main
+
+import "fmt"
+
+func swap(x, y string) (string, string) {
+   return y, x
+}
+func main() {
+   a, b := swap("Mahesh", "Kumar")
+   fmt.Println(a, b)
+}
+
+Function Arguments:
+While calling a function, there are two ways that arguments can be passed to a function −
+* call by value
+** call by reference
+
+By default, Go uses call by value to pass arguments. In general, it means the code within
+a function cannot alter the arguments used to call the function.
+
+Function Usage
+A function can be used in the following ways:
+*Function as value:
+Go programming language provides the flexibility to create functions on the fly and use
+them as values. In the following example, we've initialized a variable with a function definition.
+Purpose of this function variable is just to use inbuilt math.sqrt() function. For example −
+
+package main
+
+import ("fmt" "math")
+
+func main(){
+   /* declare a function variable */
+   getSquareRoot := func(x float64) float64 {
+      return math.Sqrt(x)
+   }
+
+   /* use the function */
+   fmt.Println(getSquareRoot(9))
+}
+
+
+Go - Method
+Go programming language supports special types of functions called methods.
+In method declaration syntax, a "receiver" is present to represent the container
+of the function. This receiver can be used to call a function using "." operator. For example −
+
+Syntax
+func (variable_name variable_data_type) function_name() [return_type]{
+   /* function body*/
+}
+
+e.g
+package main
+
+import (
+   "fmt" 
+   "math" 
+)
+
+/* define a circle */
+type Circle struct {
+   x,y,radius float64
+}
+
+/* define a method for circle */
+func(circle Circle) area() float64 {
+   return math.Pi * circle.radius * circle.radius
+}
+
+func main(){
+   circle := Circle{x:0, y:0, radius:5}
+   fmt.Printf("Circle area: %f", circle.area())
+}
+
